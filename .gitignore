@@ -2,11 +2,11 @@ myenv/
 *.pyc
 .env
 __pycache__/
-node_modules/
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
 .flowconfig
+test.py
 *~
 .grunt
 _SpecRunner.html
