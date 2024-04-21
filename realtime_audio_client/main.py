@@ -27,7 +27,7 @@ stream = p.open(
     channels=CHANNELS,
     rate=RATE,
     input=True,
-    frames_per_buffer=FRAMES_PER_BUFFER
+    #frames_per_buffer=FRAMES_PER_BUFFER
 )
 
 URL = "ws://127.0.0.1:8000/user-audio-input"
@@ -42,7 +42,7 @@ async def send_and_receive():
         async def send_data():
             while True:
                 try:
-                    data = stream.read(FRAMES_PER_BUFFER)
+                    data = stream.read()
                     data = base64.b64encode(data).decode("utf-8")
                     json_data = json.dumps({"audio_data": str(data)})
                     await websocket.send(json_data)
