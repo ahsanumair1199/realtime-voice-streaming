@@ -49,6 +49,14 @@ async def send_and_receive():
                 except websockets.exceptions.ConnectionClosedError as e:
                     print(e)
                     break
+                except Exception as e:
+                    stream = p.open(
+                    format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    input=True,
+                    frames_per_buffer=FRAMES_PER_BUFFER
+                    )
                 await asyncio.sleep(0.01)
             return True
 
