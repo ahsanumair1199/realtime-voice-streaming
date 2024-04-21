@@ -42,7 +42,7 @@ async def send_and_receive():
         async def send_data():
             while True:
                 try:
-                    data = stream.read(FRAMES_PER_BUFFER)
+                    data = stream.read(FRAMES_PER_BUFFER, exception_on_overflow = False)
                     data = base64.b64encode(data).decode("utf-8")
                     json_data = json.dumps({"audio_data": str(data)})
                     await websocket.send(json_data)
